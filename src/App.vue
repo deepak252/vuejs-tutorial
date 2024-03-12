@@ -12,6 +12,14 @@
     success: isLive,
     'underline': isLive,
   }">Object Binding Class</p>
+
+  <p v-bind:style="{
+    color: highlightColor,
+    'font-size': paraSize+'px',  
+  }">Inline Style</p> <!-- OR, fontSize: paraSize+'px' -->
+  <p v-bind:style="paraStyle">Style Object</p>
+  <p v-bind:style="[paraStyle, borderStyle]">Style Object</p>
+  
 </template>
 
 <script>
@@ -26,7 +34,16 @@ export default {
       headingId:'heading',
       isDisabled: true,
       status: 'success',
-      isLive: true
+      isLive: true,
+      highlightColor: 'purple',
+      paraSize: 24,
+      paraStyle: {
+        color: 'orange',
+        fontWeight: 'bold'
+      },
+      borderStyle: {
+        border: '1px solid black'
+      }
     }
   }
 }
