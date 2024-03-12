@@ -2,23 +2,23 @@
   <div>Hello {{name}}</div> <!-- Method 1 (mustache syntax {{}}) -->
   <div v-text="age"></div> <!-- Method 2 (v-text directive: replaces the entire text content) -->
   <div v-html="designation"></div> <!-- (v-html directive : Binds Html) -->
-  <div v-bind:id="headingId">ABCD</div> <!-- Binding to id attribute -->
-  <button v-bind:disabled="isDisabled">Click</button> <!-- Binding to disabled attribute -->
-  <p class="underline" v-bind:class="status">ACTIVE</p> <!-- Binding Static and Dynamic Classes -->
-  <p v-bind:class="isLive && 'success'">LIVE</p>
-  <p v-bind:class="!isLive ? 'success' : 'danger'">OFFLINE</p>
-  <p v-bind:class="['success', 'underline']">Array Binding Class</p>
-  <p v-bind:class="{
+  <div :id="headingId">ABCD</div> <!-- Binding to id attribute -->
+  <button :disabled="isDisabled">Click</button> <!-- Binding to disabled attribute -->
+  <p class="underline" :class="status">ACTIVE</p> <!-- Binding Static and Dynamic Classes -->
+  <p :class="isLive && 'success'">LIVE</p>
+  <p :class="!isLive ? 'success' : 'danger'">OFFLINE</p>
+  <p :class="['success', 'underline']">Array Binding Class</p>
+  <p :class="{
     success: isLive,
     'underline': isLive,
   }">Object Binding Class</p>
 
-  <p v-bind:style="{
+  <p :style="{
     color: highlightColor,
     'font-size': paraSize+'px',  
   }">Inline Style</p> <!-- OR, fontSize: paraSize+'px' -->
-  <p v-bind:style="paraStyle">Style Object</p>
-  <p v-bind:style="[paraStyle, borderStyle]">Style Object</p>
+  <p :style="paraStyle">Style Object</p>
+  <p :style="[paraStyle, borderStyle]">Style Object</p>
   
 </template>
 
