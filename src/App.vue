@@ -2,6 +2,8 @@
   <div>Hello {{name}}</div> <!-- Method 1 (mustache syntax {{}}) -->
   <div v-text="age"></div> <!-- Method 2 (v-text directive: replaces the entire text content) -->
   <div v-html="designation"></div> <!-- (v-html directive : Binds Html) -->
+  <div v-bind:id="headingId">ABCD</div> <!-- Binding to id attribute -->
+  <button v-bind:disabled="isDisabled">Click</button> <!-- Binding to disabled attribute -->
 </template>
 
 <script>
@@ -12,7 +14,9 @@ export default {
     return {
       name: 'Deepak',
       age: 32,
-      designation: '<b>Software Developer</b>'
+      designation: '<b>Software Developer</b>',
+      headingId:'heading',
+      isDisabled: true
     }
   }
 }
