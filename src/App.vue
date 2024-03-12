@@ -4,6 +4,14 @@
   <div v-html="designation"></div> <!-- (v-html directive : Binds Html) -->
   <div v-bind:id="headingId">ABCD</div> <!-- Binding to id attribute -->
   <button v-bind:disabled="isDisabled">Click</button> <!-- Binding to disabled attribute -->
+  <p class="underline" v-bind:class="status">ACTIVE</p> <!-- Binding Static and Dynamic Classes -->
+  <p v-bind:class="isLive && 'success'">LIVE</p>
+  <p v-bind:class="!isLive ? 'success' : 'danger'">OFFLINE</p>
+  <p v-bind:class="['success', 'underline']">Array Binding Class</p>
+  <p v-bind:class="{
+    success: isLive,
+    'underline': isLive,
+  }">Object Binding Class</p>
 </template>
 
 <script>
@@ -16,7 +24,9 @@ export default {
       age: 32,
       designation: '<b>Software Developer</b>',
       headingId:'heading',
-      isDisabled: true
+      isDisabled: true,
+      status: 'success',
+      isLive: true
     }
   }
 }
@@ -30,5 +40,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.success{
+  color: green;
+}
+
+.danger{
+  color: red;
+}
+
+.underline{
+  text-decoration: underline;
 }
 </style>
