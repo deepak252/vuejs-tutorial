@@ -1,12 +1,17 @@
 <template>
-  <div>Vue App</div>
+  <div>Hello {{name}}</div> <!-- Method 1 (mustache syntax {{}}) -->
+  <div v-text="age"></div> <!-- Method 2 (v-text directive: replaces the entire text content) -->
 </template>
 
 <script>
 
 export default {
   name: 'App',
-  components: {
+  data(){
+    return {
+      name: 'Deepak',
+      age: 32
+    }
   }
 }
 </script>
