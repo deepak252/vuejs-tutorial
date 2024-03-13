@@ -1,19 +1,8 @@
 <template>
-  <h3>List of Strings</h3>
-  <p v-for="name in names" :key="name">{{name}}</p>
-  <h3>List of Strings with Index</h3>
-  <p v-for="(name, index) in names" :key="name">{{index}} {{name}}</p>
-  <h3>List of Objects</h3>
-  <p v-for="fullName in fullNames" :key="fullName.first">{{fullName.first}} {{fullName.last}}</p>
-  <h3>List of Lists</h3>
-  <div v-for="actor in actors" :key="actor.name">
-    <p>{{actor.name}}</p>
-    <span v-for="movie in actor.movies" :key="movie">{{movie}}, </span>
-  </div>
-  <h3>Conditional List Rendering</h3>
-  <template v-for="name in names" :key="name">
-    <p v-if="['Bruce', 'Clark'].includes(name)">{{name}}</p>
-  </template>
+  <h2>{{1+2+3}}</h2>
+  <h2>Add method - {{add(10,3)}}</h2>
+  <h2>Multiply Method - {{multiply(10)}}</h2>
+  <h2>Multiply Method - {{multiply(baseValue)}}</h2>
 </template>
 
 <script>
@@ -22,23 +11,20 @@ export default {
   name: 'App',
   data(){
     return {
-      names: ['Bruce', 'Clark', 'Diana'],
-      fullNames: [
-        {first: 'Bruce', last: 'wayne'},
-        {first: 'Clark', last: 'Kent'},
-        {first: 'Diana', last: 'Kent'},
-      ],
-      actors: [
-        {
-          name: 'Christian Bale',
-          movies: ['Batman', 'The Prestige']
-        },
-        {
-          name: 'Di Caprio',
-          movies: ['Titanic', 'Inception']
-        }
-      ]
+      baseMultiplier: 5,
+      baseValue: 2
     }
+  },
+  methods: {
+    add(num1, num2){
+      return num1+num2;
+    },
+    multiply(num){
+      return this.baseMultiplier*num;
+    },
+    // multiply: (num)=>{ // Don't use arrow functions
+    //   return this.baseMultiplier*num; // Error:  Cannot read properties of undefined (reading 'baseMultiplier')
+    // }
   }
 }
 </script>
