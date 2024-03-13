@@ -1,8 +1,16 @@
 <template>
-  <h2>{{1+2+3}}</h2>
-  <h2>Add method - {{add(10,3)}}</h2>
-  <h2>Multiply Method - {{multiply(10)}}</h2>
-  <h2>Multiply Method - {{multiply(baseValue)}}</h2>
+  <h2>{{name}}</h2>
+  <button v-on:click="name='Deepak Chaurasiya'">Update Name</button>
+  <h2>{{count}}</h2>
+  <div>
+    <button v-on:click="count++">+</button>
+    <button v-on:click="count--">-</button>
+    <br>
+    <button v-on:click="increment(2)">+2</button>
+    <button v-on:click="decrement(2)">-2</button>
+    <br>
+    <button v-on:click="reset">RESET</button>
+  </div>
 </template>
 
 <script>
@@ -11,20 +19,23 @@ export default {
   name: 'App',
   data(){
     return {
-      baseMultiplier: 5,
-      baseValue: 2
+      name: 'Deepak',
+      count: 0
     }
   },
   methods: {
     add(num1, num2){
       return num1+num2;
     },
-    multiply(num){
-      return this.baseMultiplier*num;
+    reset(){
+      this.count = 0;
     },
-    // multiply: (num)=>{ // Don't use arrow functions
-    //   return this.baseMultiplier*num; // Error:  Cannot read properties of undefined (reading 'baseMultiplier')
-    // }
+    increment(num){
+      this.count+=num;
+    },
+    decrement(num){
+      this.count-=num;
+    }
   }
 }
 </script>
