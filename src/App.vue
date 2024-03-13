@@ -1,21 +1,19 @@
 <template>
-  <div v-if="num===3">Num is three</div>
-  <div v-if="num===0">Num is zero</div>
-  <div v-else-if="num===2">Num is two</div>
-  <div v-else>Num is not zero, two</div>
-
-  <!-- <div v-if="display" >
-    <p>Hii</p>
-    <p>There</p>
-  </div> -->
-  <template v-if="display" >
-    <p>Hii</p>
-    <p>There</p>
+  <h3>List of Strings</h3>
+  <p v-for="name in names" :key="name">{{name}}</p>
+  <h3>List of Strings with Index</h3>
+  <p v-for="(name, index) in names" :key="name">{{index}} {{name}}</p>
+  <h3>List of Objects</h3>
+  <p v-for="fullName in fullNames" :key="fullName.first">{{fullName.first}} {{fullName.last}}</p>
+  <h3>List of Lists</h3>
+  <div v-for="actor in actors" :key="actor.name">
+    <p>{{actor.name}}</p>
+    <span v-for="movie in actor.movies" :key="movie">{{movie}}, </span>
+  </div>
+  <h3>Conditional List Rendering</h3>
+  <template v-for="name in names" :key="name">
+    <p v-if="['Bruce', 'Clark'].includes(name)">{{name}}</p>
   </template>
-
-  <div v-if="display" >Using v-if</div>
-  <div v-show="show" >Using v-show</div> <!-- uses display: none; -->
-
 </template>
 
 <script>
@@ -24,9 +22,22 @@ export default {
   name: 'App',
   data(){
     return {
-      num: 3,
-      display: true,
-      show: false,
+      names: ['Bruce', 'Clark', 'Diana'],
+      fullNames: [
+        {first: 'Bruce', last: 'wayne'},
+        {first: 'Clark', last: 'Kent'},
+        {first: 'Diana', last: 'Kent'},
+      ],
+      actors: [
+        {
+          name: 'Christian Bale',
+          movies: ['Batman', 'The Prestige']
+        },
+        {
+          name: 'Di Caprio',
+          movies: ['Titanic', 'Inception']
+        }
+      ]
     }
   }
 }
