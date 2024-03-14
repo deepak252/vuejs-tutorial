@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>Title - {{title}}</h2>
+        <h2 v-bind="$attrs">Title - {{title}}</h2>
         <p>{{content}}</p>
         <p>Likes - {{likes}}</p>
     </div>
@@ -19,7 +19,8 @@
                 type: Number,
                 required: true
             }
-        }
+        },
+        inheritAttrs: false
     }
 </script>
 

@@ -6,7 +6,7 @@
   <Greet :name="name" :hero-name="name2"/> -->
   <Article :likes="8"/>
   <Article title="Title 1" :likes="12"/>
-  <Article :title="'Title 2'" content="Lorem Ipsum" :likes="12"/>
+  <Article id="article-2" :title="'Title 2'" content="Lorem Ipsum" :likes="12"/>
 
 </template>
 
