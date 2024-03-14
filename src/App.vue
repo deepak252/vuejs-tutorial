@@ -1,27 +1,20 @@
 <template>
-  <button @click="showPopup=!showPopup">Toggle Popup</button>
-  <!-- <Popup v-show="showPopup" @close="showPopup=false"/> -->
-  <Popup v-show="showPopup" @close="closePopup"/>
+    <p>Input - {{name}}</p>
+    <CustomInput v-model="name"/>
 </template>
 <script>
-import Popup from'./components/Popup.vue'
+import CustomInput from'./components/CustomInput.vue'
 
 export default {
-  name: 'App',
-  components: {
-    Popup
-  },
-  data(){
-    return {
-      showPopup: false
+    name: 'App',
+    components: {
+        CustomInput
+    },
+    data(){
+        return {
+            name: ''
+        }
     }
-  },
-  methods: {
-    closePopup(payload){
-      console.log({payload});
-      this.showPopup=false
-    }
-  }
 }
 </script>
 
