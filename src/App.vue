@@ -1,14 +1,15 @@
 <template>
-    <p>Input - {{name}}</p>
-    <CustomInput v-model="name"/>
+    <!-- <Card content="Card Content"/> -->
+    <Card>Card Content</Card>
+    <Card><h2>Card Content</h2></Card>
 </template>
 <script>
-import CustomInput from'./components/CustomInput.vue'
+import Card from'./components/Card.vue'
 
 export default {
     name: 'App',
     components: {
-        CustomInput
+        Card
     },
     data(){
         return {
