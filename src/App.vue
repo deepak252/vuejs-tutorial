@@ -1,8 +1,16 @@
 <template>
-  <h2>Volume Tracker</h2>
-  <h4>{{volume}}</h4>
-  <button @click="volume--">-</button>
-  <button @click="volume++">+</button>
+  <div>
+    <h2>Volume Tracker</h2>
+    <h4>{{volume}}</h4>
+    <button @click="volume--">-</button>
+    <button @click="volume++">+</button>
+  </div>
+  <div>
+    <input type="text" v-model="movie"/>
+    <input type="text" v-model="movieInfo.title"/>
+    <input type="text" v-model="movieInfo.author"/>
+    <button @click="movies.push('Flash')">Add Movie</button>
+  </div>
 </template>
 
 <script>
@@ -11,7 +19,13 @@ export default {
   name: 'App',
   data(){
     return {
-      volume: 0
+      volume: 0,
+      movie: 'Batman',
+      movieInfo: {
+        title: '',
+        author: ''
+      },
+      movies: ["Batman", "Superman"]
     }
   },
   methods: {},
@@ -22,7 +36,26 @@ export default {
       if(newValue>oldValue && newValue==7){
         alert("High volume alert")
       }
+    },
+    movie: {
+      handler(newValue){
+        console.log('search for movie ', newValue);
+      },
+      immediate: true
+    },
+    movieInfo: {
+      handler(newValue){
+        console.log(`Movie title - ${newValue.title}, author - ${newValue.author}`);
+      },
+      deep: true
+    },
+    movies: {
+      handler(newValue){
+        console.log(`Movies - ${newValue}`);
+      },
+      deep: true
     }
+  
   }
 }
 </script>
