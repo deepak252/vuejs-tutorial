@@ -1,7 +1,20 @@
 <template>
     <!-- <Card content="Card Content"/> -->
-    <Card>Card Content</Card>
-    <Card><h2>Card Content</h2></Card>
+    <!-- <Card>Card Content</Card> -->
+    <!-- <Card><h2>Card Content</h2></Card> -->
+    <Card>
+        <template v-slot:header>
+            <h1>Card Heading</h1>
+        </template>
+        <template v-slot:default>
+            <p>
+                Card Content Card Content
+            </p>
+        </template>
+        <template v-slot:footer>
+            <button>View Details</button>
+        </template>
+    </Card>
 </template>
 <script>
 import Card from'./components/Card.vue'
@@ -11,11 +24,6 @@ export default {
     components: {
         Card
     },
-    data(){
-        return {
-            name: ''
-        }
-    }
 }
 </script>
 
