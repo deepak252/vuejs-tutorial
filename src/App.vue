@@ -1,28 +1,30 @@
 <template>
-    <!-- <Card content="Card Content"/> -->
-    <!-- <Card>Card Content</Card> -->
-    <!-- <Card><h2>Card Content</h2></Card> -->
-    <Card>
-        <template v-slot:header>
-            <h1>Card Heading</h1>
+    <h3>List 1</h3>
+    <NameList>
+        <template v-slot:default="slotProps">
+                {{slotProps.firstName}}, {{slotProps.lastName}}
         </template>
-        <template v-slot:default>
-            <p>
-                Card Content Card Content
-            </p>
+    </NameList>
+    <h3>List 2</h3>
+    <NameList>
+        <template v-slot:default="slotProps">
+                {{slotProps.lastName}}, {{slotProps.firstName}}
         </template>
-        <template v-slot:footer>
-            <button>View Details</button>
+    </NameList>
+    <h3>List 3</h3>
+    <NameList>
+        <template v-slot:default="slotProps">
+                {{slotProps.firstName}}
         </template>
-    </Card>
+    </NameList>
 </template>
 <script>
-import Card from'./components/Card.vue'
+import NameList from'./components/NameList.vue'
 
 export default {
     name: 'App',
     components: {
-        Card
+        NameList
     },
 }
 </script>
