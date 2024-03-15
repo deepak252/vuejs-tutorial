@@ -25,6 +25,9 @@ import axios from 'axios';
 
 export default {
     name: 'PostList',
+    created(){
+        this.getPosts();
+    },
     data(){
         return {
             posts: [],
@@ -42,13 +45,14 @@ export default {
             this.isLoading = true;
             axios.get('https://jsonplaceholder.typicode.com/posts')
             .then(response=>{
+                console.log('getPosts - ',response);
                 if(response.status==200){
                     this.errorMsg = '';
                     this.posts = response.data;
                 }
             })
             .catch(err=>{
-                console.log(err);
+                console.log('getPosts - ', err);
                 this.errorMsg = 'Error while fetching data';
             })
             .finally(()=>{
@@ -58,10 +62,10 @@ export default {
         createPost(){
             axios.post('https://jsonplaceholder.typicode.com/posts', this.formData)
             .then(response=>{
-                console.log(response);
+                console.log('createPost', response);
             })
             .catch(err=>{
-                console.log(err);
+                console.log('createPost', err);
                 this.errorMsg = 'Error while creating post';
             })
         }
