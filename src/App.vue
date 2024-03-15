@@ -5,7 +5,9 @@
     <!-- <TabA v-if="activeTab=='tabA'"/>
     <TabB v-if="activeTab=='tabB'" />
     <TabC v-if="activeTab=='tabC'" /> -->
-    <component :is="activeTab"/>
+    <keep-alive>
+        <component :is="activeTab"/>
+    </keep-alive>
 </template>
 <script>
 import TabA from'./components/TabA.vue'
