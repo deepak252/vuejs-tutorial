@@ -1,18 +1,29 @@
 <template>
-    <h2>Parent H2</h2>
-    <!-- <ChildStyles /> -->
-    <ChildStyles>
-        <h2>Child H2</h2> 
-    </ChildStyles>
+    <button @click="activeTab='TabA'">Tab A</button>
+    <button @click="activeTab='TabB'">Tab B</button>
+    <button @click="activeTab='TabC'">Tab C</button>
+    <!-- <TabA v-if="activeTab=='tabA'"/>
+    <TabB v-if="activeTab=='tabB'" />
+    <TabC v-if="activeTab=='tabC'" /> -->
+    <component :is="activeTab"/>
 </template>
 <script>
-import ChildStyles from'./components/ChildStyles.vue'
+import TabA from'./components/TabA.vue'
+import TabB from'./components/TabB.vue'
+import TabC from'./components/TabC.vue'
 
 export default {
     name: 'App',
     components: {
-        ChildStyles
+        TabA,
+        TabB,
+        TabC,
     },
+    data(){
+        return {
+            activeTab: 'TabA'
+        }
+    }
 }
 </script>
 
@@ -24,10 +35,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-h2{
-    color: orange;
 }
 
 </style>
