@@ -1,5 +1,12 @@
 <template>
     <div>
+        <form @submit.prevent="createPost">
+            <input type="text" placeholder="User Id" v-model="formData.userId"/>
+            <input type="text" placeholder="Title" v-model="formData.title"/>
+            <input type="text" placeholder="Description" v-model="formData.description"/>
+            <button>SUBMIT</button>
+        </form>
+        <hr />
         <button @click="getPosts">Get Posts</button>
         <p v-if="isLoading">Loading...</p>
         <p v-else-if="errorMsg">{{errorMsg}}</p>
@@ -22,7 +29,12 @@ export default {
         return {
             posts: [],
             isLoading: false,
-            errorMsg: ''
+            errorMsg: '',
+            formData: {
+                userId:'',
+                title: '',
+                body: ''
+            }
         }
     },
     methods: {
@@ -41,6 +53,16 @@ export default {
             })
             .finally(()=>{
                 this.isLoading = false;
+            })
+        },
+        createPost(){
+            axios.post('https://jsonplaceholder.typicode.com/posts', this.formData)
+            .then(response=>{
+                console.log(response);
+            })
+            .catch(err=>{
+                console.log(err);
+                this.errorMsg = 'Error while creating post';
             })
         }
     }
