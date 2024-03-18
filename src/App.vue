@@ -1,19 +1,22 @@
 <template>
     <div>
         <Data v-show="false"/>
-        <Methods />
+        <Methods v-show="false"/>
+        <VModel/>
     </div>
 </template>
 
 <script>
 import Data from './components/Data.vue'
 import Methods from './components/Methods.vue'
+import VModel from './components/VModel.vue'
 
 export default {
     name: 'App',
     components: {
         Data,
-        Methods
+        Methods,
+        VModel,
     }
 }
 </script>
