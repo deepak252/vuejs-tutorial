@@ -1,16 +1,19 @@
 <template>
     <div>
-        <Data />
+        <Data v-show="false"/>
+        <Methods />
     </div>
 </template>
 
 <script>
 import Data from './components/Data.vue'
+import Methods from './components/Methods.vue'
 
 export default {
     name: 'App',
     components: {
-        Data
+        Data,
+        Methods
     }
 }
 </script>
