@@ -1,12 +1,16 @@
 <template>
-    <!-- <h4> Options - {{o_firstName}} </h4> -->
-    <h4> IsLoggedIn - {{isLoggedIn}} </h4> 
-    <h4> User - {{greet}} </h4>
-    <h4> User - {{userInfoState}} </h4>
+    <div>
+        <!-- <h4> IsLoggedIn - {{isLoggedIn}} </h4> 
+        <h4> User - {{greet}} </h4>
+        <h4> User - {{userInfoState}} </h4> -->
+        <h4> IsLoggedIn - {{isLoggedIn}} </h4> 
+        <h4>User - {{state.firstName}} {{state.lastName}}</h4>
+        <h4>User - {{firstName}} {{lastName}}</h4>
+    </div>
 </template>
 
 <script>
-import { reactive, ref } from 'vue'
+import { reactive, ref, toRefs } from 'vue'
 
 export default {
     name: 'Data',
@@ -17,17 +21,40 @@ export default {
     },
     setup(){
         const isLoggedIn = ref(true); 
-        const userInfoState = reactive({
+        const state = reactive({
             firstName: 'Deepak',
-            lastName: 'Chaurasiya',
-            email: 'deepak@gmail.com'
-        }); 
-        const greet = `Hello ${userInfoState.firstName} ${userInfoState.lastName}`;
+            lastName: 'Chaurasiya'
+        });
+        setTimeout(()=>{
+            isLoggedIn.value = false;
+            state.firstName = 'Bruce';
+            state.lastName = 'Wayne';
+            console.log(state);
+        },2000)
+
+        // return {
+        //     isLoggedIn,
+        //     firstName: state.firstName, // Bug
+        //     lastName: state.lastName, // // Bug
+        // }
+
         return {
             isLoggedIn,
-            userInfoState,
-            greet
+            state,
+            ...toRefs(state)
         }
+
+        // const greet = `Hello ${userInfoState.firstName} ${userInfoState.lastName}`;
+        // setTimeout(()=>{
+        //     isLoggedIn.value = false;
+        //     userInfoState.firstName = "Bruce"
+        // },2000)
+
+        // return {
+        //     isLoggedIn,
+        //     userInfoState,
+        //     greet
+        // }
     },
 }
 </script>
