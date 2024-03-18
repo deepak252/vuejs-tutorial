@@ -1,11 +1,12 @@
 <template>
-    <h4> Options - {{o_firstName}} </h4>
-    <h4> Composition - {{c_firstName}} </h4> <!-- Deepak -->
-    <h4> Composition - {{greet}} </h4> <!-- Hello Daniel -->
+    <!-- <h4> Options - {{o_firstName}} </h4> -->
+    <h4> IsLoggedIn - {{isLoggedIn}} </h4> 
+    <h4> User - {{greet}} </h4>
+    <h4> User - {{userInfoState}} </h4>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 export default {
     name: 'Data',
@@ -15,12 +16,16 @@ export default {
         }
     },
     setup(){
-        const c_firstName = ref('Daniel'); // Composition API
-        console.log(c_firstName.value); // Daniel
-        const greet = `Hello ${c_firstName.value}`;
-        c_firstName.value = 'Deepak';
+        const isLoggedIn = ref(true); 
+        const userInfoState = reactive({
+            firstName: 'Deepak',
+            lastName: 'Chaurasiya',
+            email: 'deepak@gmail.com'
+        }); 
+        const greet = `Hello ${userInfoState.firstName} ${userInfoState.lastName}`;
         return {
-            c_firstName,
+            isLoggedIn,
+            userInfoState,
             greet
         }
     },
