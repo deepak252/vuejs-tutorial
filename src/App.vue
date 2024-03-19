@@ -1,8 +1,8 @@
 <template>
     <div>
         <nav>
-            <RouterLink to="/">Go to Home</RouterLink>
-            <RouterLink to="/blogs">Go to BLogs</RouterLink>
+            <RouterLink to="/">Home</RouterLink>
+            <span>' '</span><RouterLink to="/blogs">BLogs</RouterLink>
         </nav>
         <main>
             <RouterView :key="$route.fullPath"/>
