@@ -1,6 +1,12 @@
 <template>
     <div>
-    
+        <nav>
+            <RouterLink to="/">Go to Home</RouterLink>
+            <RouterLink to="/blogs">Go to BLogs</RouterLink>
+        </nav>
+        <main>
+            <RouterView :key="$route.fullPath"/>
+        </main>
     </div>
 </template>
 
