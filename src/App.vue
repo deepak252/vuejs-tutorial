@@ -2,7 +2,8 @@
     <div>
         <Data v-show="false"/>
         <Methods v-show="false"/>
-        <VModel/>
+        <VModel v-show="false"/>
+        <Computed />
     </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Data from './components/Data.vue'
 import Methods from './components/Methods.vue'
 import VModel from './components/VModel.vue'
+import Computed from './components/Computed.vue'
 
 export default {
     name: 'App',
@@ -17,6 +19,7 @@ export default {
         Data,
         Methods,
         VModel,
+        Computed
     }
 }
 </script>
