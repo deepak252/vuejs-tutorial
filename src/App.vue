@@ -3,7 +3,8 @@
         <Data v-show="false"/>
         <Methods v-show="false"/>
         <VModel v-show="false"/>
-        <Computed />
+        <Computed v-show="false"/>
+        <Watch />
     </div>
 </template>
 
@@ -12,6 +13,7 @@ import Data from './components/Data.vue'
 import Methods from './components/Methods.vue'
 import VModel from './components/VModel.vue'
 import Computed from './components/Computed.vue'
+import Watch from './components/Watch.vue'
 
 export default {
     name: 'App',
@@ -19,7 +21,8 @@ export default {
         Data,
         Methods,
         VModel,
-        Computed
+        Computed,
+        Watch
     }
 }
 </script>
